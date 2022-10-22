@@ -3,24 +3,62 @@
 # Create a program that will print your nickname using only asterisk character (*)
 # NICKNAME: LYNDON
 
-letter_L = [[" " for row in range(0, 6)] for col in range(0, 6)]
-letter_N = [[" " for row in range(0, 6)] for col in range(0, 6)]
+letter_L = [[" " for row in range(0, 7)] for col in range(0, 7)]
+letter_Y = [[" " for row in range(0, 7)] for col in range(0, 7)]
+letter_N1 = [[" " for row in range(0, 7)] for col in range(0, 7)]
+letter_D = [[" " for row in range(0, 7)] for col in range(0, 7)]
+letter_O = [[" " for row in range(0, 7)] for col in range(0, 7)]
+letter_N = [[" " for row in range(0, 7)] for col in range(0, 7)]
 
-for row_L in range (0, 6):
-    for col_L in range (0, 6):
-        if (col_L == 0 or row_L == 5):
+# L
+for row_L in range (0, 7):
+    for col_L in range (0, 7):
+        if (col_L == 0 or row_L == 6):
             letter_L [row_L][col_L] = "*"
-
-for row_N in range (0, 6):
-    for col_N in range (0, 6):
-        if col_N == 0 or col_N == 5 or row_N == col_N:
+# Y
+for row_Y in range (0, 7):
+    for col_Y in range (0, 7):
+        if (col_Y == 3 and row_Y >= 3) or (col_Y <= 3 and row_Y == col_Y) or (row_Y == 2 and col_Y == 4) or (row_Y == 1 and col_Y == 5) or (row_Y == 0 and col_Y == 6):
+            letter_Y [row_Y][col_Y] = "*"
+# N1
+for row_N1 in range (0, 7):
+    for col_N1 in range (0, 7):
+        if col_N1 == 0 or col_N1 == 6 or row_N1 == col_N1:
+            letter_N1 [row_N1][col_N1] = "*"
+# D
+for row_D in range (0, 7):
+    for col_D in range (0, 7):
+        if col_D == 0 or ((row_D == 0 or row_D == 6) and (col_D <= 3)) or (row_D == 0 and col_D == 3) or (row_D == 1 and col_D == 4) or (row_D == 2 and col_D == 5) or (row_D == 3 and col_D == 6) or (row_D == 4 and col_D == 5) or (row_D == 5 and col_D == 4) or (row_D == 6 and col_D == 3):
+            letter_D [row_D][col_D] = "*"
+# O
+for row_O in range (0, 7):
+    for col_O in range (0, 7):
+        if ((col_O == 0 or col_O == 6) and (row_O != 0 and row_O != 6)) or ((row_O == 0 or row_O == 6) and (col_O > 0 and col_O < 6)):
+            letter_O [row_O][col_O] = "*"
+# N
+for row_N in range (0, 7):
+    for col_N in range (0, 7):
+        if col_N == 0 or col_N == 6 or row_N == col_N:
             letter_N [row_N][col_N] = "*"
 
-for row in range(6):
-    for col in range(6):
+# Loop for Displaying Output
+for row in range(7):
+    for col in range(7):
         print(letter_L[row][col], end="")
+    print(end="")
+    for col in range(7):
+        print(letter_Y[row][col], end="")
     print(end="  ")
-    for col in range(0, 6):
+    for col in range(0, 7):
+        print(letter_N1[row][col], end="")
+    print(end="  ")
+    for col in range(0, 7):
+        print(letter_D[row][col], end="")
+    print(end="  ")
+    for col in range(0, 7):
+        print(letter_O[row][col], end="")
+    print(end="  ")
+    for col in range(0, 7):
         print(letter_N[row][col], end="")
     print()
 
